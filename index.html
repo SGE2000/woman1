@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fifth Avenue Luxe | NYC Beauty Boutique</title>
+    <!-- Professional Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf8f7; /* Soft rose background */
+            color: #2c2c2c;
+            line-height: 1.5;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, .logo, .hero h2, .nav-links a {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        /* ===== HEADER – LUXURY NYC STYLE ===== */
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            padding: 1.2rem 4rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1;
+        }
+        .logo span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: #b78c7a; /* warm rose */
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-top: 0.1rem;
+        }
+
+        .nyc-badge {
+            background: #f1e4e0;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #5e3c34;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nyc-badge i {
+            font-size: 1rem;
+            color: #b78c7a;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .main-nav {
+            background: #fff;
+            padding: 0.75rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            color: #3e3e3e;
+            transition: color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-links a:hover {
+            color: #b78c7a;
+        }
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+            color: #3e3e3e;
+        }
+        .nav-icons i {
+            font-size: 1.2rem;
+            cursor: default;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            background: linear-gradient(135deg, #fcf8f7 0%, #f8efec 100%);
+        }
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-family: 'Inter', sans-serif;
+            color: #5e5e5e;
+            max-width: 650px;
+            margin: 1rem auto 0;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* ===== PRODUCT GRID ===== */
+        .container {
+            max-width: 1440px;
+            margin: 3rem auto;
+            padding: 0 4rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* ===== PRODUCT CARD – LUXURY EDITION ===== */
+        .product-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.2rem 1.5rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(183, 140, 122, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 15px 35px -12px rgba(0,0,0,0.05);
+            position: relative;
+            backdrop-filter: blur(2px);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(183, 140, 122, 0.4);
+            box-shadow: 0 30px 45px -15px rgba(183, 140, 122, 0.25);
+        }
+
+        /* Product Badge */
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #b78c7a;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(183,140,122,0.2);
+        }
+
+        .product-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid #f3e3de;
+            background-color: #faf0ec;
+            transition: border 0.3s;
+            box-shadow: 0 15px 25px -10px rgba(0,0,0,0.1);
+        }
+        .product-card:hover .product-image {
+            border-color: #b78c7a;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: #2c2c2c;
+            margin-bottom: 0.2rem;
+            line-height: 1.4;
+            min-height: 3.2rem;
+        }
+
+        .product-brand {
+            font-size: 0.8rem;
+            color: #b78c7a;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.8rem;
+            color: #f5b342;
+            font-size: 0.9rem;
+        }
+        .rating span {
+            color: #7e7e7e;
+            font-size: 0.8rem;
+            margin-left: 0.2rem;
+        }
+
+        .price-block {
+            margin: 0.6rem 0 0.8rem;
+            width: 100%;
+            background: #f9f3f0;
+            padding: 0.8rem 0;
+            border-radius: 50px;
+        }
+        .old-price {
+            font-size: 1rem;
+            color: #9e9e9e;
+            text-decoration: line-through;
+            margin-right: 0.8rem;
+            font-weight: 400;
+        }
+        .sale-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e1e1e;
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .add-to-cart {
+            background: transparent;
+            border: 1px solid #b78c7a;
+            color: #b78c7a;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            cursor: default;
+            transition: all 0.2s;
+            margin-top: 0.5rem;
+            width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .product-card:hover .add-to-cart {
+            background: #b78c7a;
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: #1e1e1e;
+            color: #b0b0b0;
+            padding: 3rem 4rem 2rem;
+            margin-top: 5rem;
+            font-size: 0.95rem;
+        }
+        .footer-content {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+        .footer-section p {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .footer-section i {
+            color: #b78c7a;
+            width: 20px;
+        }
+        .newsletter input {
+            background: transparent;
+            border: 1px solid #4a4a4a;
+            padding: 0.8rem;
+            border-radius: 60px;
+            width: 250px;
+            color: white;
+        }
+        .newsletter button {
+            background: #b78c7a;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 600;
+            color: white;
+            margin-left: 0.5rem;
+            cursor: default;
+        }
+        .footer-copyright {
+            border-top: 1px solid #333;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 800px) {
+            .site-header, .main-nav { padding-left: 2rem; padding-right: 2rem; }
+            .container { padding: 0 2rem; }
+            .hero h2 { font-size: 2.5rem; }
+        }
+        @media (max-width: 600px) {
+            .nav-links { display: none; } /* simplify for mobile */
+            .product-grid { gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <h1>Fifth Avenue Luxe</h1>
+            <span>NEW YORK CITY</span>
+        </div>
+        <div class="nyc-badge">
+            <i class="fas fa-crown"></i> BOUTIQUE 435 FIFTH
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-links">
+            <a href="#">HOME</a>
+            <a href="#">NEW ARRIVALS</a>
+            <a href="#">BESTSELLERS</a>
+            <a href="#">SKINCARE</a>
+            <a href="#">MAKEUP</a>
+            <a href="#">FRAGRANCE</a>
+        </div>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="far fa-heart"></i>
+            <i class="fas fa-shopping-bag"></i>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h2>The Best of Amazon Beauty</h2>
+        <p>Curated for the discerning New Yorker. Each product includes our signature 25% luxury experience premium.</p>
+    </section>
+
+    <main class="container">
+        <div class="product-grid" id="productGrid"></div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Fifth Avenue Luxe</h4>
+                <p><i class="fas fa-map-pin"></i> 435 Fifth Avenue, New York, NY 10016</p>
+                <p><i class="fas fa-phone-alt"></i> +1 (212) 555-0199</p>
+                <p><i class="far fa-envelope"></i> concierge@fifthavenueluxe.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <p>Same‑day delivery in Manhattan</p>
+                <p>Personal shopping</p>
+                <p>Gift wrapping</p>
+            </div>
+            <div class="footer-section newsletter">
+                <h4>Insider Access</h4>
+                <p>Subscribe for exclusive previews</p>
+                <div>
+                    <input type="email" placeholder="Your email" value="" readonly>
+                    <button>→</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 Fifth Avenue Luxe. All rights reserved. Prices displayed include a 25% markup on current Amazon market prices.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // ===== 50 REAL-WORLD BESTSELLERS (AMAZON INSPIRED) =====
+            const baseProducts = [
+                // Skincare (15)
+                { name: "Mighty Patch Original", brand: "Hero Cosmetics", type: "Acne Patch", basePrice: 17.91, rating: 4.8 },
+                { name: "Mighty Patch Variety Pack", brand: "Hero Cosmetics", type: "Acne Patch", basePrice: 21.99, rating: 4.7 },
+                { name: "Shea Better Body Lotion - Vanilla Cashmere", brand: "eos", type: "Body Lotion", basePrice: 12.44, rating: 4.6 },
+                { name: "Shea Better Body Lotion - Coconut Waters", brand: "eos", type: "Body Lotion", basePrice: 12.44, rating: 4.6 },
+                { name: "Liquid Hand Soap - Lavender", brand: "Mrs. Meyer's", type: "Hand Soap", basePrice: 9.99, rating: 4.7 },
+                { name: "Liquid Hand Soap - Peppermint", brand: "Mrs. Meyer's", type: "Hand Soap", basePrice: 9.99, rating: 4.7 },
+                { name: "Zero Pore Pads", brand: "Medicube", type: "Toner Pads", basePrice: 32.50, rating: 4.4 },
+                { name: "Bio-Collagen Real Deep Mask", brand: "Biodance", type: "Sheet Mask", basePrice: 13.08, rating: 4.5 },
+                { name: "Makeup Remover Wipes", brand: "Neutrogena", type: "Cleansing Wipes", basePrice: 11.99, rating: 4.8 },
+                { name: "Collagen Jelly Cream", brand: "Medicube", type: "Moisturizer", basePrice: 28.75, rating: 4.3 },
+                { name: "Healing Ointment - 3oz", brand: "Aquaphor", type: "Multi-Purpose Balm", basePrice: 9.97, rating: 4.9 },
+                { name: "Healing Ointment - 7oz", brand: "Aquaphor", type: "Multi-Purpose Balm", basePrice: 14.99, rating: 4.9 },
+                { name: "Vanilla Bliss Foam Bath", brand: "Tree Hut", type: "Body Wash", basePrice: 8.99, rating: 4.5 },
+                { name: "Glycerin Body Lotion", brand: "OGX", type: "Body Lotion", basePrice: 7.99, rating: 4.5 },
+                { name: "Caffeine Eye Cream", brand: "The Ordinary", type: "Eye Cream", basePrice: 11.50, rating: 4.4 },
+
+                // Makeup (15)
+                { name: "Lash Sensational Sky High Mascara", brand: "Maybelline", type: "Mascara", basePrice: 10.99, rating: 4.7 },
+                { name: "Lash Sensational Sky High Mascara - Waterproof", brand: "Maybelline", type: "Mascara", basePrice: 11.99, rating: 4.6 },
+                { name: "Superstay Matte Ink Lipstick - Voyager", brand: "Maybelline", type: "Lipstick", basePrice: 9.99, rating: 4.6 },
+                { name: "Superstay Matte Ink Lipstick - Pioneer", brand: "Maybelline", type: "Lipstick", basePrice: 9.99, rating: 4.7 },
+                { name: "Color Riche Lipstick - 233", brand: "L'Oreal Paris", type: "Lipstick", basePrice: 9.25, rating: 4.5 },
+                { name: "Color Riche Lipstick - 280", brand: "L'Oreal Paris", type: "Lipstick", basePrice: 9.25, rating: 4.5 },
+                { name: "Lash Paradise Mascara", brand: "L'Oreal Paris", type: "Mascara", basePrice: 10.99, rating: 4.6 },
+                { name: "Age Rewind Concealer", brand: "Maybelline", type: "Concealer", basePrice: 8.99, rating: 4.7 },
+                { name: "Fit Me Matte Powder", brand: "Maybelline", type: "Face Powder", basePrice: 7.99, rating: 4.6 },
+                { name: "Fit Me Matte Powder - Fair", brand: "Maybelline", type: "Face Powder", basePrice: 7.99, rating: 4.6 },
+                { name: "Soft Pinch Liquid Blush - Hope", brand: "Rare Beauty", type: "Blush", basePrice: 23.00, rating: 4.8 },
+                { name: "Soft Pinch Liquid Blush - Joy", brand: "Rare Beauty", type: "Blush", basePrice: 23.00, rating: 4.8 },
+                { name: "Lip Gloss - Fenty Glow", brand: "Fenty Beauty", type: "Lip Gloss", basePrice: 20.00, rating: 4.7 },
+                { name: "Lip Gloss - Hot Chocolit", brand: "Fenty Beauty", type: "Lip Gloss", basePrice: 20.00, rating: 4.7 },
+                { name: "Setting Spray", brand: "Urban Decay", type: "Makeup Setter", basePrice: 33.00, rating: 4.8 },
+
+                // Hair Care (8)
+                { name: "Dry Shampoo - Original", brand: "Amika", type: "Dry Shampoo", basePrice: 31.00, rating: 4.7 },
+                { name: "Dry Shampoo - Fresh", brand: "Amika", type: "Dry Shampoo", basePrice: 31.00, rating: 4.7 },
+                { name: "Hair Biology Supplement", brand: "Viviscal", type: "Hair Care", basePrice: 23.98, rating: 4.5 },
+                { name: "Moisture Shampoo", brand: "OGX", type: "Shampoo", basePrice: 8.99, rating: 4.5 },
+                { name: "Coconut Milk Conditioner", brand: "OGX", type: "Conditioner", basePrice: 8.99, rating: 4.5 },
+                { name: "Hair Oil - Argan", brand: "OGX", type: "Hair Oil", basePrice: 9.99, rating: 4.6 },
+                { name: "Curl Defining Cream", brand: "SheaMoisture", type: "Hair Cream", basePrice: 12.99, rating: 4.7 },
+                { name: "Leave-In Conditioner", brand: "It's a 10", type: "Hair Treatment", basePrice: 24.99, rating: 4.8 },
+
+                // Tools & Accessories (7)
+                { name: "Clean Towels - 60ct", brand: "Clean Skin Club", type: "Face Towels", basePrice: 14.99, rating: 4.9 },
+                { name: "Clean Towels - 30ct", brand: "Clean Skin Club", type: "Face Towels", basePrice: 8.99, rating: 4.9 },
+                { name: "Booster Pro Device", brand: "Medicube", type: "Skincare Device", basePrice: 399.00, rating: 4.5 },
+                { name: "Facial Roller Set", brand: "Medicube", type: "Skincare Tool", basePrice: 25.99, rating: 4.4 },
+                { name: "Jade Roller", brand: "Epara", type: "Skincare Tool", basePrice: 32.00, rating: 4.5 },
+                { name: "Makeup Brush Set", brand: "Real Techniques", type: "Brushes", basePrice: 18.99, rating: 4.8 },
+                { name: "Beauty Sponge Set", brand: "Real Techniques", type: "Sponge", basePrice: 10.99, rating: 4.8 },
+
+                // Fragrance & Body (5)
+                { name: "Perfume - Cloud", brand: "Ariana Grande", type: "Fragrance", basePrice: 39.99, rating: 4.8 },
+                { name: "Perfume - Sweet Like Candy", brand: "Ariana Grande", type: "Fragrance", basePrice: 39.99, rating: 4.8 },
+                { name: "Body Scrub - Moroccan Rose", brand: "Tree Hut", type: "Body Scrub", basePrice: 8.99, rating: 4.7 },
+                { name: "Body Scrub - Shea", brand: "Tree Hut", type: "Body Scrub", basePrice: 8.99, rating: 4.7 },
+                { name: "Deodorant - Lavender", brand: "Native", type: "Deodorant", basePrice: 10.99, rating: 4.6 }
+            ];
+
+            // ===== IMAGE URL GENERATOR – LOCAL FILES =====
+            // Usa imágenes locales con nombres image1.jpg, image2.jpg, ... image50.jpg
+            function getImageUrl(index) {
+                // Los índices empiezan en 0, pero queremos image1.jpg para el primer producto
+                return `image${index + 1}.jpg`;
+            }
+
+            const grid = document.getElementById('productGrid');
+            if (!grid) return;
+
+            grid.innerHTML = '';
+
+            baseProducts.forEach((prod, idx) => {
+                const salePrice = prod.basePrice * 1.25;
+                const baseFormatted = prod.basePrice.toFixed(2);
+                const saleFormatted = salePrice.toFixed(2);
+
+                const card = document.createElement('article');
+                card.className = 'product-card';
+
+                // Add badges for top sellers
+                let badge = '';
+                if (idx % 6 === 0) badge = '<span class="product-badge">BESTSELLER</span>';
+                else if (idx % 7 === 0) badge = '<span class="product-badge">LIMITED</span>';
+
+                const ratingStars = '★'.repeat(Math.floor(prod.rating)) + (prod.rating % 1 >= 0.5 ? '½' : '');
+
+                card.innerHTML = `
+                    ${badge}
+                    <img class="product-image" src="${getImageUrl(idx)}" alt="${prod.name}" loading="lazy">
+                    <h3 class="product-name">${prod.name}</h3>
+                    <div class="product-brand">${prod.brand}</div>
+                    <div class="rating">
+                        <span>${ratingStars}</span>
+                        <span>${prod.rating}</span>
+                    </div>
+                    <div class="price-block">
+                        <span class="old-price">$${baseFormatted}</span>
+                        <span class="sale-price">$${saleFormatted}</span>
+                    </div>
+                    <div class="add-to-cart">ADD TO BAG</div>
+                `;
+
+                grid.appendChild(card);
+            });
+
+            console.log('✅ 50 luxury products loaded – NYC edition');
+        })();
+    </script>
+</body>
+</html>
